@@ -1,2 +1,31 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h3>Books</h3>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+<table>
+  <tr>
+	  <th>
+		  <P>title</P>
+		</th>
+		<th>
+		  <P>body</P>
+		</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<tr>
+	</tr>
+</table>
+<h4>New book</h4>
+<% form_with model:Book.new do %>
+	<p>Title</p>
+  <%= f.text_field :title %>
+	<P>Body</P>
+	<%= f.text_field :body %>
+	<%= f.submit %>
+<% end %>
+
